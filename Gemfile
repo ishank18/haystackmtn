@@ -4,6 +4,7 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
+gem 'seedbank'
 gem 'clearance'
 
 gem 'sass-rails', '~> 5.0'
