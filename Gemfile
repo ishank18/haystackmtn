@@ -5,7 +5,7 @@ gem 'pg'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 gem 'seedbank'
-gem 'clearance'
+# gem 'clearance'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

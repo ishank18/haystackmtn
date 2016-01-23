@@ -1,5 +1,11 @@
 class Seed < ActiveRecord::Base
 
+  def self.unique_precipitation_values
+    Seed.all.map { |seed| seed.annual_precipitation_minimum }
+            .uniq
+            .sort
+  end
+
   def self.add_dryland_seed(name, annual_precipitation_min)
     Seed.create!(
       name: name,
