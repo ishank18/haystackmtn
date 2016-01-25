@@ -36,3 +36,8 @@ group :development do
   gem 'guard-spring'
 end
 
+group :production do
+  gem 'rails_12factor' # necessary for heroku
+end
+
+ruby "2.3.0"
