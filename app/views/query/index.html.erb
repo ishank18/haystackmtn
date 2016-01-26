@@ -1,0 +1,28 @@
+<div>
+  <h2>Which seed?</h2>
+  <br>
+  <br>
+  <%= form_tag do |f| %>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <label>Soil Type
+          <%= select(:name, :id, { :prompt => true }, { include_blank: '(select one)' }) do %>
+            <%= options_from_collection_for_select(SoilType.all, :id, :name) %>
+          <% end %>
+        </label>
+      </div>
+
+      <div class="medium-6 columns">
+        <label>Annual Precipitation (inches)
+          <%= select(:annual_precipitation_minimum, :id, { :prompt => true }, { include_blank: '(select one)'  }) do %>
+            <% Seed.all_unique_precipitation_values.each do |value| -%>
+              <%= content_tag(:option, value, value: value) %>
+            <% end %>
+          <% end %>
+        </label>
+      </div>
+    </div>
+
+  <% end %>
+</div>
