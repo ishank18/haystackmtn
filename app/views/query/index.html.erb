@@ -13,7 +13,7 @@
     <div class="medium-6 columns">
       <label>Annual Precipitation (inches)
         <%= select(:annual_precipitation_minimum, :id, { :prompt => true }, { include_blank: '(select one)'  }) do %>
-          <% Seed.unique_precipitation_values.each do |value| -%>
+          <% Seed.all_unique_precipitation_values.each do |value| -%>
             <%= content_tag(:option, value, value: value) %>
           <% end %>
         <% end %>

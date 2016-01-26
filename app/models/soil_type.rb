@@ -1,4 +1,6 @@
 class SoilType < ActiveRecord::Base
+  belongs_to :seed
+
   module Type
     DRYLAND   = 'Dryland'.freeze
     IRRIGATED = 'Irrigated'.freeze

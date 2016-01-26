@@ -1,6 +1,15 @@
 class Seed < ActiveRecord::Base
+  has_one :soil_type
+  has_one :unit_of_measurement
 
-  def self.unique_precipitation_values
+  def self.all_unique_precipitation_values_by_soil_type(soil_type_id)
+    Seed.all.where(soil_type_id: soil_type_id)
+            .map { |seed| seed.annual_precipitation_minimum }
+            .uniq
+            .sort
+  end
+
+  def self.all_unique_precipitation_values
     Seed.all.map { |seed| seed.annual_precipitation_minimum }
             .uniq
             .sort
