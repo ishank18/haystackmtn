@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :saline_sodic_soil_tolerances
   get 'query/index'
 
   # resources :soil_types

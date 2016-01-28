@@ -1,0 +1,21 @@
+<%= form_for(@saline_sodic_soil_tolerance) do |f| %>
+  <% if @saline_sodic_soil_tolerance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@saline_sodic_soil_tolerance.errors.count, "error") %> prohibited this saline_sodic_soil_tolerance from being saved:</h2>
+
+      <ul>
+      <% @saline_sodic_soil_tolerance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.text_field :level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

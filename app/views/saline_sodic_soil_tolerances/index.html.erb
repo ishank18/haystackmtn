@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Saline Sodic Soil Tolerances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @saline_sodic_soil_tolerances.each do |saline_sodic_soil_tolerance| %>
+      <tr>
+        <td><%= saline_sodic_soil_tolerance.level %></td>
+        <td><%= link_to 'Show', saline_sodic_soil_tolerance %></td>
+        <td><%= link_to 'Edit', edit_saline_sodic_soil_tolerance_path(saline_sodic_soil_tolerance) %></td>
+        <td><%= link_to 'Destroy', saline_sodic_soil_tolerance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Saline sodic soil tolerance', new_saline_sodic_soil_tolerance_path %>
