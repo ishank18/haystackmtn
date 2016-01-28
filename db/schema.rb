@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128043152) do
+ActiveRecord::Schema.define(version: 20160128052143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annual_precipitations", force: :cascade do |t|
+    t.float    "amount"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "unit_of_measurement_id"
+  end
+
+  add_index "annual_precipitations", ["unit_of_measurement_id"], name: "index_annual_precipitations_on_unit_of_measurement_id", using: :btree
 
   create_table "salt_tolerances", force: :cascade do |t|
     t.string   "level"
@@ -24,17 +33,16 @@ ActiveRecord::Schema.define(version: 20160128043152) do
 
   create_table "seeds", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.float    "annual_precipitation_minimum"
-    t.integer  "unit_of_measurement_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "soil_type_id"
     t.integer  "salt_tolerance_id"
+    t.integer  "annual_precipitation_id"
   end
 
+  add_index "seeds", ["annual_precipitation_id"], name: "index_seeds_on_annual_precipitation_id", using: :btree
   add_index "seeds", ["salt_tolerance_id"], name: "index_seeds_on_salt_tolerance_id", using: :btree
   add_index "seeds", ["soil_type_id"], name: "index_seeds_on_soil_type_id", using: :btree
-  add_index "seeds", ["unit_of_measurement_id"], name: "index_seeds_on_unit_of_measurement_id", using: :btree
 
   create_table "soil_types", force: :cascade do |t|
     t.string   "name"
@@ -48,7 +56,8 @@ ActiveRecord::Schema.define(version: 20160128043152) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "annual_precipitations", "unit_of_measurements"
+  add_foreign_key "seeds", "annual_precipitations"
   add_foreign_key "seeds", "salt_tolerances"
   add_foreign_key "seeds", "soil_types"
-  add_foreign_key "seeds", "unit_of_measurements"
 end

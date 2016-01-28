@@ -5,8 +5,8 @@
   <%= @seed.name %>
 </p>
 <p>
-  <strong>Annual Precipitation:</strong>
-  <%= @seed.annual_precipitation_minimum %> <%= UnitOfMeasurement.find(@seed.unit_of_measurement_id).name %>
+  <strong>Annual Precipitation (inches):</strong>
+  <%= AnnualPrecipitation.find(@seed.annual_precipitation_id).amount %>
 </p>
 <p>
   <strong>Soil Type:</strong>

@@ -17,7 +17,7 @@
     <% @seeds.each do |seed| %>
       <tr>
         <td><%= seed.name %></td>
-        <td><%= seed.annual_precipitation_minimum %></td>
+        <td><%= AnnualPrecipitation.find(seed.annual_precipitation_id).amount %></td>
         <td><%= SoilType.find(seed.soil_type_id).name %></td>
         <td><%= SaltTolerance.find(seed.salt_tolerance_id).level %></td>
         <td><%= link_to 'Show', seed %></td>
