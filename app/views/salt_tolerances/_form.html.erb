@@ -1,0 +1,21 @@
+<%= form_for(@salt_tolerance) do |f| %>
+  <% if @salt_tolerance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@salt_tolerance.errors.count, "error") %> prohibited this salt_tolerance from being saved:</h2>
+
+      <ul>
+      <% @salt_tolerance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.text_field :level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

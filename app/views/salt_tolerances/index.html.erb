@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Salt Tolerances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salt_tolerances.each do |salt_tolerance| %>
+      <tr>
+        <td><%= salt_tolerance.level %></td>
+        <td><%= link_to 'Show', salt_tolerance %></td>
+        <td><%= link_to 'Edit', edit_salt_tolerance_path(salt_tolerance) %></td>
+        <td><%= link_to 'Destroy', salt_tolerance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Salt tolerance', new_salt_tolerance_path %>

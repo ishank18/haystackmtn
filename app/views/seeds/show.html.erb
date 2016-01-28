@@ -5,12 +5,16 @@
   <%= @seed.name %>
 </p>
 <p>
-  <strong>Annual Precipitation:</strong>
-  <%= @seed.annual_precipitation_minimum %> <%= UnitOfMeasurement.find(@seed.unit_of_measurement_id).name %>
+  <strong>Annual Precipitation (inches):</strong>
+  <%= AnnualPrecipitation.find(@seed.annual_precipitation_id).amount %>
 </p>
 <p>
   <strong>Soil Type:</strong>
   <%= SoilType.find(@seed.soil_type_id).name %>
+</p>
+<p>
+  <strong>Salt Tolerance:</strong>
+  <%= SaltTolerance.find(@seed.salt_tolerance_id).level %>
 </p>
 
 <%= link_to 'Edit', edit_seed_path(@seed) %> |
