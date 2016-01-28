@@ -19,7 +19,7 @@
         <td><%= seed.name %></td>
         <td><%= seed.annual_precipitation_minimum %></td>
         <td><%= SoilType.find(seed.soil_type_id).name %></td>
-        <td><%= SalineSodicSoilTolerance.find(seed.saline_sodic_soil_tolerance_id).level %></td>
+        <td><%= SaltTolerance.find(seed.salt_tolerance_id).level %></td>
         <td><%= link_to 'Show', seed %></td>
         <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
         <td><%= link_to 'Destroy', seed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

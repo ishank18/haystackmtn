@@ -14,7 +14,7 @@
 </p>
 <p>
   <strong>Salt Tolerance:</strong>
-  <%= SalineSodicSoilTolerance.find(@seed.saline_sodic_soil_tolerance_id).level %>
+  <%= SaltTolerance.find(@seed.salt_tolerance_id).level %>
 </p>
 
 <%= link_to 'Edit', edit_seed_path(@seed) %> |
