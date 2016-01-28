@@ -12,6 +12,10 @@
   <strong>Soil Type:</strong>
   <%= SoilType.find(@seed.soil_type_id).name %>
 </p>
+<p>
+  <strong>Salt Tolerance:</strong>
+  <%= SalineSodicSoilTolerance.find(@seed.saline_sodic_soil_tolerance_id).level %>
+</p>
 
 <%= link_to 'Edit', edit_seed_path(@seed) %> |
 <%= link_to 'Back', seeds_path %>

@@ -1,5 +1,5 @@
-after :saline_sodic_soil_tolerance do
-  level = SalineSodicSoilTolerance::Level
+after :salt_tolerance do
+  level = SaltTolerance::Level
 
   puts 'Seeding Seed ...'
 

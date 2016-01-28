@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "saline_sodic_soil_tolerances/show", type: :view do
+RSpec.describe "salt_tolerances/show", type: :view do
   before(:each) do
-    @saline_sodic_soil_tolerance = assign(:saline_sodic_soil_tolerance, SalineSodicSoilTolerance.create!(
+    @salt_tolerance = assign(:salt_tolerance, SaltTolerance.create!(
       :level => "Level"
     ))
   end

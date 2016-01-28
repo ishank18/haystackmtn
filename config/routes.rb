@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :saline_sodic_soil_tolerances
+  resources :salt_tolerances
   get 'query/index'
 
+  resources :seeds
   # resources :soil_types
-  # resources :seeds
+  # resources :saline_sodic_soil_tolerances
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

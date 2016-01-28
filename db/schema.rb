@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128041011) do
+ActiveRecord::Schema.define(version: 20160128043152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "saline_sodic_soil_tolerances", force: :cascade do |t|
+    t.string   "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "salt_tolerances", force: :cascade do |t|
     t.string   "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,9 +36,11 @@ ActiveRecord::Schema.define(version: 20160128041011) do
     t.integer  "unit_of_measurement_id"
     t.integer  "soil_type_id"
     t.integer  "saline_sodic_soil_tolerance_id"
+    t.integer  "salt_tolerance_id"
   end
 
   add_index "seeds", ["saline_sodic_soil_tolerance_id"], name: "index_seeds_on_saline_sodic_soil_tolerance_id", using: :btree
+  add_index "seeds", ["salt_tolerance_id"], name: "index_seeds_on_salt_tolerance_id", using: :btree
   add_index "seeds", ["soil_type_id"], name: "index_seeds_on_soil_type_id", using: :btree
   add_index "seeds", ["unit_of_measurement_id"], name: "index_seeds_on_unit_of_measurement_id", using: :btree
 
@@ -55,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160128041011) do
   end
 
   add_foreign_key "seeds", "saline_sodic_soil_tolerances"
+  add_foreign_key "seeds", "salt_tolerances"
   add_foreign_key "seeds", "soil_types"
   add_foreign_key "seeds", "unit_of_measurements"
 end

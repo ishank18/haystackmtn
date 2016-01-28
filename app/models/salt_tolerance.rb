@@ -1,4 +1,4 @@
-class SalineSodicSoilTolerance < ActiveRecord::Base
+class SaltTolerance < ActiveRecord::Base
   belongs_to :seed
 
   module Level
