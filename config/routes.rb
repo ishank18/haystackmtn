@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'query/index'
+  get 'query/search'
 
-  # resources :seeds
+  resources :seeds, only: [:show, :index]
   # resources :soil_types
   # resources :salt_tolerances
 
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'query#index'
+  root 'query#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

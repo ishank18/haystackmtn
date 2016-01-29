@@ -1,10 +1,13 @@
 class SeedsController < ApplicationController
-  before_action :set_seed, only: [:show, :edit, :update, :destroy]
 
   # GET /seeds
   # GET /seeds.json
   def index
-    @seeds = Seed.all
+    if params[:soil_type_id]
+      @seeds = Seed.find_by(soil_type_id: params[:soil_type_id])
+    else
+      @seeds = Seed.all
+    end
   end
 
   # GET /seeds/1
@@ -69,6 +72,6 @@ class SeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seed_params
-      params.require(:seed).permit(:name)
+      params.require(:seed).permit(:name, :soil_type_id, :annual_precipitation_id, :salt_tolerance_id)
     end
 end

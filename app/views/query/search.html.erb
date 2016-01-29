@@ -1,0 +1,44 @@
+<h1>Which seed?</h1>
+<br>
+<br>
+<div>
+  <%= form_tag(seeds_path, method: "get", id: "search-form") do %>
+
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Soil Type
+          <%= select(:soil_type, :soil_type_id, { :prompt => true }, { include_blank: '(none selected)' }) do %>
+            <%= options_from_collection_for_select(@soil_types, :id, :name) %>
+          <% end %>
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>Annual Precipitation (inches)
+          <%= select(:annual_precipitation, :annual_precipitation_id, { :prompt => true }, { include_blank: '(none selected)'  }) do %>
+            <%= options_from_collection_for_select(@annual_precipitation_values, :id, :amount) %>
+          <% end %>
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>Salt Tolerance
+          <%= select(:salt_tolerance, :salt_tolerance_id, { :prompt => true }, { include_blank: '(none selected)' }) do %>
+            <%= options_from_collection_for_select(@salt_tolerances, :id, :level) %>
+          <% end %>
+        </label>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="actions">
+      <%= submit_tag('Search', :class => "button large", :name => nil) %>
+    </div>
+  <% end %>
+
+  <!-- <% if @results.present? %>
+    <%= render @results %>
+  <% end %> -->
+</div>

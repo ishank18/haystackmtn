@@ -17,17 +17,10 @@
     <% @seeds.each do |seed| %>
       <tr>
         <td><%= seed.name %></td>
-        <td><%= AnnualPrecipitation.find(seed.annual_precipitation_id).amount %></td>
-        <td><%= SoilType.find(seed.soil_type_id).name %></td>
-        <td><%= SaltTolerance.find(seed.salt_tolerance_id).level %></td>
-        <td><%= link_to 'Show', seed %></td>
-        <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
-        <td><%= link_to 'Destroy', seed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= seed.annual_precipitation_amount %></td>
+        <td><%= seed.soil_type %></td>
+        <td><%= seed.salt_tolerance %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Seed', new_seed_path %>

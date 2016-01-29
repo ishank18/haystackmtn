@@ -3,6 +3,23 @@ class Seed < ActiveRecord::Base
   has_one :salt_tolerance
   has_one :annual_precipitation
 
+  def soil_type
+    SoilType.find(self.soil_type_id).name
+  end
+
+  def salt_tolerance
+    SaltTolerance.find(self.salt_tolerance_id).level
+  end
+
+  def annual_precipitation_amount
+    AnnualPrecipitation.find(self.annual_precipitation_id).amount
+  end
+
+  def annual_precipitation_unit_of_measurement
+    uid = AnnualPrecipitation.find(self.annual_precipitation_id).unit_of_measurement_id
+    UnitOfMeasurement.find(uid).name
+  end
+
   def self.add_dryland_seed(name, annual_precipitation, salt_tolerance_level)
     Seed.create!(
       name: name,
