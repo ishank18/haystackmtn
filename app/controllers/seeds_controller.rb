@@ -3,11 +3,7 @@ class SeedsController < ApplicationController
   # GET /seeds
   # GET /seeds.json
   def index
-    if params[:soil_type_id]
-      @seeds = Seed.find_by(soil_type_id: params[:soil_type_id])
-    else
-      @seeds = Seed.all
-    end
+    @seeds = Seed.where(query_params.reject { |k, v| v.blank? })
   end
 
   # GET /seeds/1
@@ -73,5 +69,9 @@ class SeedsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def seed_params
       params.require(:seed).permit(:name, :soil_type_id, :annual_precipitation_id, :salt_tolerance_id)
+    end
+
+    def query_params
+      params.require(:q).permit(:soil_type_id, :salt_tolerance_id, :annual_precipitation_id)
     end
 end
